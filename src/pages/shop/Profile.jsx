@@ -81,7 +81,7 @@ export default function Profile() {
             </div>
           </div>
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={() => setDarkMode((prev) => !prev)}
             className={cn('w-12 h-6 rounded-full transition-colors relative', darkMode ? 'bg-primary' : 'bg-muted')}
           >
             <div className={cn('w-5 h-5 rounded-full bg-white shadow absolute top-0.5 transition-transform', darkMode ? 'translate-x-6' : 'translate-x-0.5')} />

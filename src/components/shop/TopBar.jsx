@@ -16,7 +16,9 @@ export default function TopBar({ title, right }) {
       <div className="flex items-center gap-2">
         {right}
         <button
-          onClick={() => setDarkMode(!darkMode)}
+          type="button"
+          aria-label="Toggle theme"
+          onClick={() => setDarkMode((prev) => !prev)}
           className="w-9 h-9 rounded-full flex items-center justify-center bg-secondary text-muted-foreground hover:text-foreground transition-colors"
         >
           <motion.div

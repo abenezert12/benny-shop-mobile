@@ -1,5 +1,5 @@
 {
-  "name": "Benny Shop Mobile",
+  "name": "Benny Shop",
   "short_name": "Benny Shop",
   "description": "Mobile storefront and dashboard application built with React and Vite.",
   "start_url": ".",
@@ -9,5 +9,18 @@
   "scope": "/",
   "orientation": "portrait",
   "categories": ["shopping", "business"],
-  "icons": []
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

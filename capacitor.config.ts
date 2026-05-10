@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.bennyshopmobile',
-  appName: 'benny-shop-mobile',
+  appId: 'com.bennyshop.mobile',
+  appName: 'Benny Shop',
   webDir: 'dist'
 };
 

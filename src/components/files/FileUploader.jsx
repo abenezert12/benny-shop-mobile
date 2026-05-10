@@ -1,9 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
 import { Upload, X, FileText, Loader2, CheckCircle2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
-import { apiClient } from '@/api/apiClient';
+import { apiClient } from '@/api/mockApiClient';
 import { cn } from '@/lib/utils';
 
 function getFileCategory(file) {

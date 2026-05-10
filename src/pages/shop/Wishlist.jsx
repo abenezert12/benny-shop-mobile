@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Heart, ShoppingBag } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Heart } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
 import { useStore } from '@/lib/store';
 import ProductCard from '@/components/shop/ProductCard';
 import TopBar from '@/components/shop/TopBar';

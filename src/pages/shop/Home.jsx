@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, ArrowRight, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PRODUCTS, CATEGORIES } from '@/lib/products';
 import ProductCard from '@/components/shop/ProductCard';
 import TopBar from '@/components/shop/TopBar';
-import { useAuth } from '@/lib/AuthContext';
 
 const categoryImages = {
   Electronics: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=400&q=80',

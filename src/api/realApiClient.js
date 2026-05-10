@@ -1,13 +1,13 @@
-import { apiClient } from './apiClient';
+import { apiClient as axiosClient } from './apiClient';
 
-export const apiClient = {
+export const realApiClient = {
   auth: {
     me: async () => {
-      const response = await apiClient.get('/auth/me');
+      const response = await axiosClient.get('/auth/me');
       return response.data.user;
     },
     logout: async (redirectUrl) => {
-      await apiClient.post('/auth/logout');
+      await axiosClient.post('/auth/logout');
       localStorage.removeItem('token');
       if (redirectUrl) {
         window.location.href = redirectUrl;
@@ -21,7 +21,7 @@ export const apiClient = {
     UploadedFile: {
       list: async (sortBy) => {
         const params = sortBy ? { sort: sortBy } : {};
-        const response = await apiClient.get('/files', { params });
+        const response = await axiosClient.get('/files', { params });
         return response.data.files.map(file => ({
           id: file._id,
           name: file.originalName,
@@ -32,7 +32,7 @@ export const apiClient = {
         }));
       },
       update: async (fileId, updates) => {
-        const response = await apiClient.put(`/files/${fileId}`, updates);
+        const response = await axiosClient.put(`/files/${fileId}`, updates);
         return {
           id: response.data.file._id,
           name: response.data.file.originalName,
@@ -43,14 +43,14 @@ export const apiClient = {
         };
       },
       delete: async (fileId) => {
-        await apiClient.delete(`/files/${fileId}`);
+        await axiosClient.delete(`/files/${fileId}`);
         return { success: true };
       },
       create: async (fileData) => {
         const formData = new FormData();
         formData.append('file', fileData.file);
 
-        const response = await apiClient.post('/files/upload', formData, {
+        const response = await axiosClient.post('/files/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
 
@@ -71,12 +71,12 @@ export const apiClient = {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await apiClient.post('/files/upload', formData, {
+        const response = await axiosClient.post('/files/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
 
         return {
-          file_url: `${apiClient.defaults.baseURL}/files/download/${response.data.file.name}`,
+          file_url: `${axiosClient.defaults.baseURL}/files/download/${response.data.file.name}`,
           file_name: response.data.file.originalName,
           file_size: response.data.file.size
         };

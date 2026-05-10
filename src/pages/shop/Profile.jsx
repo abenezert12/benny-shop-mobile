@@ -1,7 +1,7 @@
 import { User, ShoppingBag, Heart, Moon, Sun, Bell, ChevronRight, LogOut, Package, MapPin, CreditCard, HelpCircle, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useStore } from '@/lib/store';
-import { apiClient } from '@/api/apiClient';
+import { apiClient } from '@/api/mockApiClient';
 import TopBar from '@/components/shop/TopBar';
 import { useAuth } from '@/lib/AuthContext';
 import { cn } from '@/lib/utils';

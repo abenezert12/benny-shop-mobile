@@ -1,0 +1,13 @@
+{
+  "name": "Benny Shop Mobile",
+  "short_name": "Benny Shop",
+  "description": "Mobile storefront and dashboard application built with React and Vite.",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#7c3aed",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "orientation": "portrait",
+  "categories": ["shopping", "business"],
+  "icons": []
+}

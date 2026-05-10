@@ -70,6 +70,22 @@ export const apiClient = {
           resolve();
         }, 300);
       });
+    },
+    login: async (email, password) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const user = { ...currentUser, email };
+          resolve({ token: 'mock-token', user });
+        }, 300);
+      });
+    },
+    register: async (name, email, password) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const user = { ...currentUser, name, email };
+          resolve({ token: 'mock-token', user });
+        }, 300);
+      });
     }
   },
   entities: {

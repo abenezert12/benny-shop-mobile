@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/benny-shop(Apps).iml" filepath="$PROJECT_DIR$/.idea/benny-shop(Apps).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/benny-shop-mobile.iml" filepath="$PROJECT_DIR$/.idea/benny-shop-mobile.iml" />
     </modules>
   </component>
 </project>

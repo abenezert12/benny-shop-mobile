@@ -27,7 +27,7 @@ const products = [
 
 async function seedDatabase() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/benny-shop');
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/benny-shop-mobile');
     
     // Clear existing products
     await Product.deleteMany({});
@@ -47,16 +47,16 @@ async function seedDatabase() {
     })));
     
     // Create admin user
-    const adminExists = await User.findOne({ email: 'admin@benny-shop.com' });
+    const adminExists = await User.findOne({ email: 'admin@benny-shop-mobile.com' });
     if (!adminExists) {
       const admin = new User({
         name: 'Admin',
-        email: 'admin@benny-shop.com',
+        email: 'admin@benny-shop-mobile.com',
         password: 'admin123',
         role: 'admin'
       });
       await admin.save();
-      console.log('Admin user created: admin@benny-shop.com / admin123');
+      console.log('Admin user created: admin@benny-shop-mobile.com / admin123');
     }
     
     console.log('Database seeded successfully!');

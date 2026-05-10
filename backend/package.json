@@ -1,5 +1,5 @@
 {
-  "name": "benny-shop-backend",
+  "name": "benny-shop-mobile-backend",
   "version": "1.0.0",
   "description": "Backend for Benny Shop Mobile App",
   "main": "server.js",

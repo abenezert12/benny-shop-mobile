@@ -123,7 +123,7 @@ The server will start on `http://localhost:5000`
 Create a `.env` file in the backend root:
 
 ```env
-MONGODB_URI=mongodb://localhost:27017/benny-shop
+MONGODB_URI=mongodb://localhost:27017/benny-shop-mobile
 JWT_SECRET=your-super-secret-jwt-key
 STRIPE_SECRET_KEY=sk_test_your-stripe-secret-key
 STRIPE_PUBLISHABLE_KEY=pk_test_your-stripe-publishable-key
@@ -134,7 +134,7 @@ NODE_ENV=development
 ## Default Admin Account
 
 After seeding the database, you can login with:
-- Email: admin@benny-shop.com
+- Email: admin@benny-shop-mobile.com
 - Password: admin123
 
 ## File Upload

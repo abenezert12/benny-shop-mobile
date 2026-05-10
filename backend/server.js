@@ -21,7 +21,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/benny-shop', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/benny-shop-mobile', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

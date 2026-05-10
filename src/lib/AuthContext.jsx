@@ -28,7 +28,8 @@ export const AuthProvider = ({ children }) => {
       setAppPublicSettings(publicSettings);
       
       // Check if user is authenticated
-      if (appParams.token) {
+      const token = localStorage.getItem('token');
+      if (token) {
         await checkUserAuth();
       } else {
         setIsLoadingAuth(false);
@@ -87,6 +88,62 @@ export const AuthProvider = ({ children }) => {
     apiClient.auth.redirectToLogin(window.location.href);
   };
 
+  const login = async (email, password) => {
+    try {
+      setAuthError(null);
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+      
+      localStorage.setItem('token', data.token);
+      setUser(data.user);
+      setIsAuthenticated(true);
+      return { success: true };
+    } catch (error) {
+      setAuthError({
+        type: 'login_failed',
+        message: error.message
+      });
+      return { success: false, error: error.message };
+    }
+  };
+
+  const register = async (name, email, password) => {
+    try {
+      setAuthError(null);
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+      
+      localStorage.setItem('token', data.token);
+      setUser(data.user);
+      setIsAuthenticated(true);
+      return { success: true };
+    } catch (error) {
+      setAuthError({
+        type: 'registration_failed',
+        message: error.message
+      });
+      return { success: false, error: error.message };
+    }
+  };
+
   return (
     <AuthContext.Provider value={{ 
       user, 
@@ -98,6 +155,8 @@ export const AuthProvider = ({ children }) => {
       authChecked,
       logout,
       navigateToLogin,
+      login,
+      register,
       checkUserAuth,
       checkAppState
     }}>
